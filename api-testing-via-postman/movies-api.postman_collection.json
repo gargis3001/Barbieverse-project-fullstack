@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "9db22e94-3f4c-4644-b2c4-dc4a6603679d",
+		"name": "movies-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "43959646"
+	},
+	"item": [
+		{
+			"name": "get all movies",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "get a single movie",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "create a new review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"reviewBody\": \"This movie was fantastic! I loved the storyline and the characters.\",\r\n    \"movieNumber\": 1\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/api/v1/reviews",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"reviews"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
