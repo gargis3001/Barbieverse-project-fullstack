@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&display=swap');
+
+.reviews-page {
+  min-height: 100vh;
+  background-image: 
+    linear-gradient(135deg, rgba(227, 211, 213, 0.9) 0%, rgba(221, 141, 184, 0.8) 25%, rgba(245, 133, 189, 0.85) 50%, rgba(255, 182, 193, 0.9) 75%, rgba(225, 104, 169, 0.8) 100%),
+    url('https://i.postimg.cc/9QcJTMNc/review-background.jpg');
+  background-size: cover;
+  background-position: center;
+
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+  position: relative;
+}
+
+.reviews-overlay {
+  background: linear-gradient(
+    45deg,
+    rgba(255, 20, 147, 0.2) 0%,
+    rgba(255, 105, 180, 0.15) 50%,
+    rgba(255, 182, 193, 0.2) 100%
+  );
+  min-height: 100vh;
+  padding: 40px 0;
+}
+.reviews-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 4rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #20081e; 
+  text-shadow: 2px 2px 8px rgba(18, 1, 11, 0.3);
+  letter-spacing: 2px;
+  filter: drop-shadow(0 0 10px rgba(33, 10, 21, 0.5));
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background-clip: unset;
+}
+
+.poster-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.poster-container {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  box-shadow: 0 20px 40px rgba(255, 20, 147, 0.4);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 3px solid rgba(255, 182, 193, 0.6);
+}
+
+.poster-container:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(255, 20, 147, 0.6);
+  border-color: rgba(255, 105, 180, 0.8);
+}
+
+.movie-poster {
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  object-fit: cover;
+  display: block;
+  border-radius: 17px;
+  filter: brightness(1.1) saturate(1.2);
+}
+
+.poster-placeholder {
+  width: 100%;
+  height: 500px;
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ffc0cb 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 17px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.heart-rating-container-small {
+  margin-top: 1rem;
+  text-align: center;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 182, 193, 0.3) 0%, 
+    rgba(255, 105, 180, 0.2) 50%, 
+    rgba(255, 20, 147, 0.15) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 182, 193, 0.4);
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(255, 20, 147, 0.25);
+  width: 100%;
+  max-width: 350px;
+}
+
+.heart-rating-container-small .heart-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 0.5rem;
+}
+
+.heart-rating-container-small .heart {
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 20, 147, 0.3));
+  user-select: none;
+}
+
+.heart-rating-container-small .heart.empty {
+  color: rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+}
+
+.heart-rating-container-small .heart.filled {
+  color: #ff1493;
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+  animation: heartPulse 0.3s ease-in-out;
+}
+
+.heart-rating-container-small .heart:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 12px rgba(255, 20, 147, 0.8));
+}
+
+.heart-rating-container-small .heart.empty:hover {
+  color: rgba(255, 105, 180, 0.8);
+}
+
+.rating-display-small {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(255, 20, 147, 0.4);
+  font-style: italic;
+  font-weight: 500;
+}
+
+/* Original Heart Rating System (kept for reference, but not used) */
+.heart-rating-container {
+  margin-top: 1.5rem;
+  text-align: center;
+  padding: 1rem;
+  background: linear-gradient(135deg, 
+    rgba(255, 182, 193, 0.2) 0%, 
+    rgba(255, 105, 180, 0.15) 50%, 
+    rgba(255, 20, 147, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 182, 193, 0.3);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.2);
+}
+
+.heart-rating-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.8rem;
+  text-shadow: 1px 1px 3px rgba(255, 20, 147, 0.5);
+}
+
+.heart-rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0.8rem;
+}
+
+.heart {
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 5px rgba(255, 20, 147, 0.3));
+  user-select: none;
+}
+
+.heart.empty {
+  color: rgba(255, 255, 255, 0.4);
+  text-shadow: 0 0 10px rgba(255, 182, 193, 0.3);
+}
+
+.heart.filled {
+  color: #ff1493;
+  text-shadow: 0 0 15px rgba(255, 20, 147, 0.8);
+  animation: heartPulse 0.3s ease-in-out;
+}
+
+.heart:hover {
+  transform: scale(1.2);
+  filter: drop-shadow(0 0 12px rgba(255, 20, 147, 0.8));
+}
+
+.heart.empty:hover {
+  color: rgba(255, 105, 180, 0.8);
+}
+
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.rating-display {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 1px 1px 2px rgba(255, 20, 147, 0.4);
+  font-style: italic;
+}
+
+.rating-display.no-rating {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.placeholder-content {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.5);
+}
+
+.placeholder-content i {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+}
+
+.placeholder-content p {
+  font-size: 1.2rem;
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+}
+
+.content-column {
+  padding-left: 2rem;
+}
+
+.content-container {
+  background: linear-gradient(135deg, 
+    rgba(255, 182, 193, 0.25) 0%, 
+    rgba(255, 105, 180, 0.2) 50%, 
+    rgba(255, 20, 147, 0.15) 100%);
+  backdrop-filter: blur(15px);
+  border: 2px solid rgba(255, 182, 193, 0.4);
+  border-radius: 25px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px rgba(255, 20, 147, 0.3);
+}
+
+.review-form-container {
+  margin-bottom: 2rem;
+}
+
+.review-form-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(255, 20, 147, 0.5);
+}
+
+.review-textarea {
+  background: rgba(255, 255, 255, 0.9);
+  border: 2px solid rgba(255, 105, 180, 0.5);
+  border-radius: 15px;
+  color: #333;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  padding: 1rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.review-textarea:focus {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #ff69b4;
+  box-shadow: 0 0 0 0.2rem rgba(255, 105, 180, 0.3);
+  color: #333;
+}
+
+.review-textarea::placeholder {
+  color: rgba(255, 20, 147, 0.6);
+  font-style: italic;
+}
+
+.submit-button {
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 50%, #ff69b4 100%);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  color: #beaeae;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 8px 20px rgba(255, 20, 147, 0.4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #ff1493 0%, #ff69b4 50%, #ff1493 100%);
+  border-color: rgba(52, 12, 57, 0.6);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(255, 20, 147, 0.6);
+  color: #ffffff;
+  filter: brightness(1.1);
+}
+
+.reviews-divider,
+.review-divider {
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 105, 180, 0.4) 20%,
+    rgba(255, 20, 147, 0.8) 50%,
+    rgba(255, 105, 180, 0.4) 80%,
+    transparent 100%
+  );
+  margin: 2rem 0;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px 10px rgba(255, 20, 147, 0.3);
+}
+
+.reviews-list {
+  max-height: 500px;
+  overflow-y: auto;
+  padding-right: 10px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.reviews-list::-webkit-scrollbar {
+  width: 10px;
+}
+
+.reviews-list::-webkit-scrollbar-track {
+  background: rgba(255, 182, 193, 0.2);
+  border-radius: 15px;
+}
+
+.reviews-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+  border-radius: 15px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  min-height: 30px;
+}
+
+.reviews-list::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.review-item {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+/* Heart bullet styling */
+.review-item::before {
+  content: "💖";
+  font-size: 1.5rem;
+  margin-top: 8px;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 8px rgba(255, 20, 147, 0.6));
+  animation: heartbeat 2s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+.review-content {
+  background: linear-gradient(135deg, 
+    rgba(255, 182, 193, 0.15) 0%, 
+    rgba(255, 255, 255, 0.1) 50%, 
+    rgba(255, 105, 180, 0.1) 100%);
+  border: 2px solid rgba(255, 105, 180, 0.3);
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.2);
+  flex: 1;
+}
+
+.review-content:hover {
+  background: linear-gradient(135deg, 
+    rgba(255, 182, 193, 0.25) 0%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    rgba(255, 105, 180, 0.2) 100%);
+  border-color: rgba(255, 20, 147, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.3);
+}
+
+.review-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; /* Increased from 1.1rem */
+  line-height: 1.7; /* Increased from 1.6 for better readability */
+  color: #ffffff;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(255, 20, 147, 0.3);
+  font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .reviews-title {
+    font-size: 2.5rem;
+  }
+  
+  .content-column {
+    padding-left: 0;
+    margin-top: 2rem;
+  }
+  
+  .content-container {
+    padding: 1.5rem;
+  }
+  
+  .poster-container {
+    max-width: 280px;
+  }
+  
+  .movie-poster {
+    min-height: 400px;
+  }
+  
+  .poster-placeholder {
+    height: 400px;
+  }
+
+  .review-text {
+    font-size: 1.2rem; /* Slightly smaller on tablets */
+  }
+
+  .review-item::before {
+    font-size: 1.3rem;
+    margin-top: 6px;
+  }
+
+  .heart-rating-container {
+    margin-top: 1rem;
+    padding: 0.8rem;
+  }
+
+  .heart-rating-title {
+    font-size: 1.1rem;
+  }
+
+  .heart {
+    font-size: 1.6rem;
+  }
+
+  .heart-rating {
+    gap: 6px;
+  }
+
+  .rating-display {
+    font-size: 0.9rem;
+  }
+
+  .heart-rating-container-small {
+    max-width: 280px;
+    padding: 0.6rem;
+  }
+
+  .heart-rating-container-small .heart {
+    font-size: 1.2rem;
+  }
+
+  .heart-rating-container-small .heart-rating {
+    gap: 5px;
+  }
+
+  .rating-display-small {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .reviews-title {
+    font-size: 2rem;
+  }
+  
+  .content-container {
+    padding: 1rem;
+  }
+  
+  .review-form-label {
+    font-size: 1.3rem;
+  }
+  
+  .submit-button {
+    font-size: 1rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .review-text {
+    font-size: 1.1rem; /* Maintains readability on mobile */
+  }
+
+  .review-item::before {
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+
+  .review-item {
+    gap: 10px;
+  }
+
+  .heart-rating-container {
+    margin-top: 0.8rem;
+    padding: 0.6rem;
+  }
+
+  .heart-rating-title {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .heart {
+    font-size: 1.4rem;
+  }
+
+  .heart-rating {
+    gap: 5px;
+    margin-bottom: 0.6rem;
+  }
+
+  .rating-display {
+    font-size: 0.85rem;
+  }
+
+  .heart-rating-container-small {
+    padding: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .heart-rating-container-small .heart {
+    font-size: 1.1rem;
+  }
+
+  .heart-rating-container-small .heart-rating {
+    gap: 4px;
+    margin-bottom: 0.4rem;
+  }
+
+  .rating-display-small {
+    font-size: 0.75rem;
+  }
+}
