@@ -1,9 +1,27 @@
-### API Testing via Postman
+## 🧪 API Testing via Postman
 
-This folder contains the Postman collection file to test the Barbieverse backend API.
+This folder includes a ready-to-use **Postman collection** (`Barbieverse_API_Collection.json`) for testing the Barbieverse backend API.
 
-Import the JSON file into [Postman](https://www.postman.com/) to quickly access and run all available API endpoints for movies and reviews.
+### ✅ How to Use
 
-Make sure your backend server is running (default: http://localhost:8080) before testing.
+1. Open [Postman](https://www.postman.com/)
+2. Click **Import** → Upload the JSON collection file
+3. Explore pre-configured requests for:
+   - `GET /api/v1/movies` – Fetch all movies
+   - `GET /api/v1/movies/{movieId}` – Get a single movie
+   - `GET /api/v1/reviews` – Get reviews (with optional filter)
+   - `POST /api/v1/reviews` – Submit a new review
 
-Happy testing! 🎬✨
+### ⚙️ Prerequisites
+
+- Ensure the backend server is running locally  
+  Default URL: `http://localhost:8080`
+
+- If you've customized the port or base URL, update the **collection environment variables** accordingly
+
+---
+
+Feel free to modify or extend the collection as needed. It’s a great way to verify endpoints, test request payloads, and debug during development.
+
+Happy testing! 🎬💬✨
+
