@@ -2,7 +2,7 @@
 
 **Barbieverse** is a full-stack movie review platform where users can explore Barbie-themed movies, read community reviews, and submit their own feedback with a vibrant, heart-based rating system.
 
-This project combines a Java + Spring Boot backend with a modern React-based frontend — all styled with a bold, Barbie-inspired aesthetic.
+This project combines a Java + Spring Boot backend with a modern React-based frontend: all styled with a bold, Barbie-inspired aesthetic.
 
 ---
 
