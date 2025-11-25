@@ -35,5 +35,3 @@ build/
 ### ENV Files ###
 .env
 
-### application properties file ###
-###application.properties###
