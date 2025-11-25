@@ -12,7 +12,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/v1/reviews")
-@CrossOrigin(origins = "http://localhost:5173", originPatterns = "https://barbieverse-frontend-gargisingh.vercel.app")
+@CrossOrigin(origins = "http://localhost:3000", originPatterns = "https://barbieverse-frontend-gargisingh.vercel.app")
 public class ReviewController {
 
     @Autowired
