@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1/movies")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:5173", originPatterns = "https://barbieverse-frontend-gargisingh.vercel.app")
 public class MovieController {
 
     @Autowired
